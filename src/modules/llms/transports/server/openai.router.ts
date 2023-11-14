@@ -352,7 +352,7 @@ export function openAIAccess(access: OpenAIAccessSchema, modelRefId: string | nu
 
 export function openAIChatCompletionPayload(model: ModelSchema, history: HistorySchema, functions: FunctionsSchema | null, forceFunctionName: string | null, n: number, stream: boolean): OpenAI.Wire.ChatCompletion.Request {
   return {
-    model: model.id,
+    model: "gpt-3.5-turbo-1106",
     messages: history,
     ...(functions && { functions: functions, function_call: forceFunctionName ? { name: forceFunctionName } : 'auto' }),
     ...(model.temperature && { temperature: model.temperature }),
